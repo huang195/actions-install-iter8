@@ -9,12 +9,17 @@ if [ -z "$INPUT_KUBECONFIG" ]; then
   exit 1
 fi
 
+if [ -z "$INPUT_ITER8_VERSION" ]; then
+  echo "ITER8 VERSION input parameter is not set, exiting..."
+  exit 1
+fi
+
 
 #############################################################
 # Create Kubernetes configuration to access the cluster
 #############################################################
 
-mkdir ~/.kube
+mkdir -p ~/.kube
 echo "$INPUT_KUBECONFIG" > ~/.kube/config
 cat ~/.kube/config
 
@@ -29,7 +34,6 @@ kubectl get pods --all-namespaces
 # Download and install Iter8
 #############################################################
 
-curl -L -s https://raw.githubusercontent.com/iter8-tools/iter8/${INPUT_ITER8_VERSION}/install/install.sh \
-| /bin/bash -
+curl -L -s https://raw.githubusercontent.com/iter8-tools/iter8/${INPUT_ITER8_VERSION}/install/install.sh | /bin/bash -
 
 kubectl -n iter8 get pods
