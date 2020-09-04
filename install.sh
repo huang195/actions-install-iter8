@@ -34,6 +34,6 @@ kubectl get pods --all-namespaces
 # Download and install Iter8
 #############################################################
 
-curl -L -s https://raw.githubusercontent.com/iter8-tools/iter8/${INPUT_ITER8_VERSION}/install/install.sh | /bin/bash -
+curl -L -s https://raw.githubusercontent.com/iter8-tools/iter8/${INPUT_ITER8_VERSION}/install/install.sh | /bin/sh -
 
 kubectl -n iter8 get pods
