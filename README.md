@@ -36,6 +36,7 @@ jobs:
           istio version: '1.6.3'
       - name: Install Iter8
         uses: huang195/actions-install-iter8@master
+        with:
           kubeconfig: "${{steps.kubeconfig.outputs.config}}"
           iter8 version: 'v1.0.0-rc1'
       - name: Interact with the cluster
