@@ -1,0 +1,17 @@
+name: 'Install Iter8'
+description: 'This action installs Iter8'
+author: 'Hai Huang'
+branding:
+  icon: anchor
+  color: blue
+inputs:
+  iter8 version:
+    description: 'Iter8 version to install'
+    required: false
+    default: 'v1.0.0-rc1'
+  kubeconfig:
+    description: 'Content of ~/.kube/config'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
